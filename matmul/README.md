@@ -1,4 +1,4 @@
-## Sample description
+## Описание образца
 
 This sample contains an example of matrix multiplication using CUBLAS. The matmul implementation reuses
 already allocated buffers on GPU if matrices' sizes are the
