@@ -1,18 +1,11 @@
 ## Описание образца
 
-This sample contains an example of matrix multiplication using CUBLAS. The matmul implementation reuses
-already allocated buffers on GPU if matrices' sizes are the
-same. It was designed this way to make performance tests more "practical" since real
-application won't allocate memory on a GPU every time data is received.
-
 Этот пример содержит пример умножения матриц с помощью CUBLAS. Реализация matmul повторно использует уже выделенные буферы на GPU, если размеры матриц совпадают. Он был разработан таким образом, чтобы сделать тесты производительности более «практичными», поскольку реальное приложение не выделяет память на GPU каждый раз при получении данных.
 
-CUBLAS matmul is being compared to other implementations:
+CUBLAS matmul сравнивается с другими реализациями:
 
-- cpu dummy implementation (see `wrapper.pyx`);
-- cpu implementation with optimized memory usage (see `wrapper.pyx`). Columns of the B matrix are
-being cached to accelerate access to the corresponding elements. This slight modification results in 3x
-performance boost. *This implementation is not listed in the table below. Run `test.py` to see the results.*
+- фиктивная реализация процессора (см. wrapper.pyx);
+- реализация процессора с оптимизированным использованием памяти (см. wrapper.pyx). Столбцы матрицы B кэшируются для ускорения доступа к соответствующим элементам. Эта небольшая модификация приводит к увеличению производительности в 3 раза. Эта реализация не указана в таблице ниже. Запустите test.py, чтобы увидеть результаты.
 - numpy.dot
 
 ## Performance research
