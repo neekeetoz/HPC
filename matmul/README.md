@@ -5,6 +5,8 @@ already allocated buffers on GPU if matrices' sizes are the
 same. It was designed this way to make performance tests more "practical" since real
 application won't allocate memory on a GPU every time data is received.
 
+Этот пример содержит пример умножения матриц с помощью CUBLAS. Реализация matmul повторно использует уже выделенные буферы на GPU, если размеры матриц совпадают. Он был разработан таким образом, чтобы сделать тесты производительности более «практичными», поскольку реальное приложение не выделяет память на GPU каждый раз при получении данных.
+
 CUBLAS matmul is being compared to other implementations:
 
 - cpu dummy implementation (see `wrapper.pyx`);
