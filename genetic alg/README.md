@@ -23,9 +23,9 @@ GeForce GTX-1050
 # Результаты
 Обозначения:
 
-* Individuals - 
+* Individuals - количество физических лиц
 
-* Points -
+* Points - количество очков (точек)
 
 * t_gpu - время работы программы на CUDA (GPU);
 
