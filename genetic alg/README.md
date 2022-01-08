@@ -21,3 +21,5 @@ GeForce GTX-1050
 # Вывод 
 Для данной видеокарты ускорение составило 5 раз
 ![image](https://user-images.githubusercontent.com/47712811/148654712-e063b10c-5dbc-4189-aafa-ecc25f21a5a8.png)
+
+gpu.jpg
