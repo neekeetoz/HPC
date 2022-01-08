@@ -20,6 +20,7 @@ Google Colab
 GeForce GTX-1050
 # Вывод 
 Для данной видеокарты ускорение составило 5 раз
+# График CPU
 ![image](https://user-images.githubusercontent.com/47712811/148654712-e063b10c-5dbc-4189-aafa-ecc25f21a5a8.png)
-
-gpu.jpg
+# График GPU
+![image](https://user-images.githubusercontent.com/47712811/148654739-52a33e17-c57d-47fe-97d4-696159632120.png)
