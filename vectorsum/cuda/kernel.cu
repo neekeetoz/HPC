@@ -25,7 +25,7 @@ __global__ void cudaSum(float *g_idata, float *g_odata)
     sdata[tid] = g_idata[i] + g_idata[i + blockDim.x];
 
     __syncthreads();
-    // It is a fucking madness to optimize code like this
+    // Оптимизация кода
     if (blockSize >= 512) {
         if (tid < 256) { sdata[tid] += sdata[tid + 256]; } __syncthreads();
     }
@@ -45,7 +45,7 @@ float *dev_idata = NULL, *dev_odata = NULL, *host_odata = NULL;
 int current_n_bytes = -1;
 
 float vec_sum(float *a, int n) {
-    // --- MEMORY ALLOCATION
+    // Выделение памяти
     int n_bytes_in = n * sizeof(float);
     int n_blocks = (n + THREADS_PER_BLOCK - 1) / THREADS_PER_BLOCK / 2;
     int n_bytes_out = n_blocks * sizeof(float);
@@ -70,7 +70,7 @@ float vec_sum(float *a, int n) {
     CUDA_CHECK(cudaDeviceSynchronize());
     CUDA_CHECK(cudaMemcpy(host_odata, dev_odata, n_bytes_out, cudaMemcpyDeviceToHost));
 
-    // Final reduction
+    // Окончательное сокращение
     float out = 0.0;
     for(int i = 0; i < n_blocks; i++) {
         out += host_odata[i];
