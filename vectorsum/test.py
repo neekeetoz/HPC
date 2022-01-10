@@ -20,7 +20,7 @@ if __name__ == '__main__':
 	ic(timeit('np.sum(a)', globals=globals(), number=n_tests))
 	ic(timeit('cpu_sum(a, single_thread)', globals=globals(), number=n_tests))
 	ic(timeit('cpu_sum(a, sixteen_threads)', globals=globals(), number=n_tests))
-	# Первый запуск предназначен для выполнения процедур инициализации.
+	# Первый запуск предназначен для выполнения процедур инициализации
 	ic(timeit('cuda_sum(a)', globals=globals(), number=n_tests))
 	ic(timeit('cuda_sum(a)', globals=globals(), number=n_tests))
 	while True:
@@ -33,6 +33,6 @@ if __name__ == '__main__':
 		ic(timeit('np.sum(a)', globals=globals(), number=n_tests))
 		ic(timeit('cpu_sum(a, single_thread)', globals=globals(), number=n_tests))
 		ic(timeit('cpu_sum(a, sixteen_threads)', globals=globals(), number=n_tests))
-		# The first run is for the initialization routines to be done
+		# Первый запуск предназначен для выполнения процедур инициализации
 		ic(timeit('cuda_sum(a)', globals=globals(), number=n_tests))
 		ic(timeit('cuda_sum(a)', globals=globals(), number=n_tests))
