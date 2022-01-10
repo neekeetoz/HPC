@@ -21,7 +21,7 @@ __global__ void cudaSum(float *g_idata, float *g_odata)
     extern __shared__ float sdata[];
     unsigned int tid = threadIdx.x;
     unsigned int i = blockIdx.x * blockDim.x * 2 + threadIdx.x;
-    // First level of reduction
+    // Первый уровень сокращения
     sdata[tid] = g_idata[i] + g_idata[i + blockDim.x];
 
     __syncthreads();
@@ -35,7 +35,7 @@ __global__ void cudaSum(float *g_idata, float *g_odata)
     if (blockSize >= 128) {
         if (tid <  64) { sdata[tid] += sdata[tid +  64]; } __syncthreads();
     }
-    // Unroll last 6 iterations
+    // Развернуть последние 6 итераций
     if (tid < 32) warpReduce<blockSize>(sdata, tid);
     if (tid == 0) g_odata[blockIdx.x] = sdata[0];
 }
@@ -54,9 +54,9 @@ float vec_sum(float *a, int n) {
             CUDA_CHECK(cudaFree(dev_idata));
             delete[] host_odata;
         }
-        printf("Allocating memory on GPU. Old current_n_bytes=%d", current_n_bytes);
+        printf("Выделение памяти на GPU. Старый current_n_bytes=%d", current_n_bytes);
         current_n_bytes = n_bytes_in;
-        printf("New current_n_bytes=%d", current_n_bytes);
+        printf("Новый current_n_bytes=%d", current_n_bytes);
         CUDA_CHECK(cudaMalloc(&dev_idata, n_bytes_in));
         CUDA_CHECK(cudaMalloc(&dev_odata, n_bytes_out));
         host_odata = new float[n_bytes_out];
