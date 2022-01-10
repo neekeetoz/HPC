@@ -11,7 +11,7 @@ def cuda_sum(float[:] a):
 	return vec_sum(&a[0], n)
 
 
-# Turn off all the smart checks for performance sake
+# Отключите все интеллектуальные проверки для повышения производительности
 @cython.overflowcheck(False)
 @cython.boundscheck(False)
 @cython.wraparound(False)
