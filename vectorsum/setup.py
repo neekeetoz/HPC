@@ -7,9 +7,9 @@ from icecream import ic
 
 
 def find_in_path(name, path):
-    """Find a file in a search path"""
+    """Найти файл в пути поиска"""
 
-    # Adapted fom http://code.activestate.com/recipes/52224
+    # Адаптировано с http://code.activestate.com/recipes/52224
     for dir in path.split(os.pathsep):
         binpath = pjoin(dir, name)
         if os.path.exists(binpath):
@@ -19,19 +19,19 @@ def find_in_path(name, path):
 
 def locate_cuda():
     """
-    Locate the CUDA environment on the system
-    Returns a dict with keys 'home', 'nvcc', 'include', and 'lib64'
-    and values giving the absolute path to each directory.
-    Starts by looking for the CUDAHOME env variable. If not found,
-    everything is based on finding 'nvcc' in the PATH.
+    Найдите среду CUDA в системе
+    Возвращает словарь с ключами «home», «nvcc», «include» и «lib64».
+    и значения, дающие абсолютный путь к каждому каталогу.
+    Начинается с поиска переменной env CUDAHOME. Если не найдено,
+    все основано на поиске «nvcc» в PATH.
     """
 
-    # First check if the CUDAHOME env variable is in use
+    # Сначала проверьте, используется ли переменная env CUDAHOME.
     if 'CUDAHOME' in os.environ:
         home = os.environ['CUDAHOME']
         nvcc = pjoin(home, 'bin')
     else:
-        # Otherwise, search the PATH for NVCC
+        # В противном случае найдите PATH для NVCC
         nvcc = find_in_path('nvcc', os.environ['PATH'])
         if nvcc is None:
             raise EnvironmentError('The nvcc binary could not be '
